@@ -7,17 +7,19 @@
 
 import UIKit
 
+private let reuseId = "ConversationCell"
+
 class ConversationViewController: UIViewController {
     
-    
     // MARK: - Properties
-    
+    private let tableView = UITableView()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureNavigationBar()
+        configureTableView()
     }
     // MARK: - Selectors
     
@@ -38,10 +40,22 @@ class ConversationViewController: UIViewController {
         )
     }
     
+    func configureTableView() {
+        tableView.backgroundColor = .white
+        view.addSubview(tableView)
+        tableView.frame = view.frame
+        tableView.rowHeight = 80
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
     func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.backgroundColor = .systemPurple
         
         navigationController?.navigationBar.standardAppearance = appearance
@@ -55,4 +69,28 @@ class ConversationViewController: UIViewController {
     }
     
 }
+// MARK: - UITableViewDelegate
+extension ConversationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Cell pressed - \(indexPath.row)")
+    }
 
+}
+// MARK: - UITableViewDataSource
+extension ConversationViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.text = "Test cell is - \(indexPath.row)"
+        cell.contentConfiguration = content
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    
+}
