@@ -10,9 +10,9 @@
 		861141312AE2A8F800550521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141302AE2A8F800550521 /* AppDelegate.swift */; };
 		861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141322AE2A8F800550521 /* SceneDelegate.swift */; };
 		861141352AE2A8F800550521 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141342AE2A8F800550521 /* ViewController.swift */; };
-		861141382AE2A8F800550521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861141362AE2A8F800550521 /* Main.storyboard */; };
 		8611413A2AE2A8F900550521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861141392AE2A8F900550521 /* Assets.xcassets */; };
 		8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */; };
+		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		861141302AE2A8F800550521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861141322AE2A8F800550521 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		861141342AE2A8F800550521 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		861141372AE2A8F800550521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		861141392AE2A8F900550521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8611413C2AE2A8F900550521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8611413E2AE2A8F900550521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,63 @@
 		8611412F2AE2A8F800550521 /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				861141492AE2AABB00550521 /* Utilits */,
+				861141482AE2AAB900550521 /* ViewModels */,
+				861141472AE2AAB700550521 /* Controllers */,
+				861141462AE2AAB600550521 /* API */,
+				861141452AE2AAB500550521 /* Views */,
+				861141442AE2AAAF00550521 /* Models */,
 				861141302AE2A8F800550521 /* AppDelegate.swift */,
 				861141322AE2A8F800550521 /* SceneDelegate.swift */,
 				861141342AE2A8F800550521 /* ViewController.swift */,
-				861141362AE2A8F800550521 /* Main.storyboard */,
 				861141392AE2A8F900550521 /* Assets.xcassets */,
 				8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */,
 				8611413E2AE2A8F900550521 /* Info.plist */,
 			);
 			path = FireChat;
+			sourceTree = "<group>";
+		};
+		861141442AE2AAAF00550521 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		861141452AE2AAB500550521 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		861141462AE2AAB600550521 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		861141472AE2AAB700550521 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8611414A2AE2AAFF00550521 /* ConversationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		861141482AE2AAB900550521 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		861141492AE2AABB00550521 /* Utilits */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +175,6 @@
 			files = (
 				8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */,
 				8611413A2AE2A8F900550521 /* Assets.xcassets in Resources */,
-				861141382AE2A8F800550521 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +187,7 @@
 			files = (
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				861141312AE2A8F800550521 /* AppDelegate.swift in Sources */,
+				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +195,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		861141362AE2A8F800550521 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				861141372AE2A8F800550521 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,9 +331,9 @@
 				INFOPLIST_FILE = FireChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,9 +341,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RazumovPV.FireChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,9 +361,9 @@
 				INFOPLIST_FILE = FireChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,9 +371,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RazumovPV.FireChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
