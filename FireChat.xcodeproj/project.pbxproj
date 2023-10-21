@@ -14,6 +14,8 @@
 		8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */; };
 		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
 		86BDA00F2AE3E01800823551 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA00E2AE3E01800823551 /* Extension.swift */; };
+		86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0102AE3ED3F00823551 /* InputContainerView.swift */; };
+		86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0122AE3F40F00823551 /* CustomTextField.swift */; };
 		86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879272AE2D6C6008F7193 /* LoginViewController.swift */; };
 		86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		8611413E2AE2A8F900550521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		86BDA00E2AE3E01800823551 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
+		86BDA0122AE3F40F00823551 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		86F879272AE2D6C6008F7193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,8 @@
 		861141452AE2AAB500550521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86BDA0102AE3ED3F00823551 /* InputContainerView.swift */,
+				86BDA0122AE3F40F00823551 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,12 +209,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */,
+				86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */,
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				86BDA00F2AE3E01800823551 /* Extension.swift in Sources */,
 				861141312AE2A8F800550521 /* AppDelegate.swift in Sources */,
 				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */,
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
+				86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

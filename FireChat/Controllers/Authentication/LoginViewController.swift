@@ -18,44 +18,13 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    private lazy var emailContainerView: UIView = {
-       let view = UIView()
-        view.setHeight(height: 50)
-        view.backgroundColor = .clear
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "mail")
-        imageView.tintColor = .white
-        
-        view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leadingAnchor, paddingLeft: 8)
-        imageView.setDimensions(height: 24, width: 24)
-        
-        view.addSubview(emailTextField)
-        emailTextField.centerY(inView: view)
-        emailTextField.anchor(left: imageView.trailingAnchor, bottom: view.bottomAnchor, right: view.trailingAnchor, paddingLeft: 8, paddingBottom: -8)
+    private lazy var emailContainerView: InputContainerView = {
+       let view = InputContainerView(image: UIImage(named: "mail"), textField: emailTextField)
         return view
     }()
     
-    private lazy var passwordContainerView: UIView = {
-       let view = UIView()
-        view.backgroundColor = .clear
-        view.setHeight(height: 50)
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "lock")
-        imageView.tintColor = .white
-        
-        view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leadingAnchor, paddingLeft: 8)
-        imageView.setDimensions(height: 24, width: 28)
-        
-        view.addSubview(passwordTextField)
-        passwordTextField.centerY(inView: view)
-        passwordTextField.anchor(left: imageView.trailingAnchor, bottom: view.bottomAnchor, right: view.trailingAnchor, paddingLeft: 8, paddingBottom: -8)
-        
+    private lazy var passwordContainerView: InputContainerView = {
+        let view = InputContainerView(image: UIImage(named: "lock"), textField: passwordTextField)
         return view
     }()
     
@@ -69,17 +38,13 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.textColor = .white
-        tf.placeholder = "Email"
+    private let emailTextField: CustomTextField = {
+        let tf = CustomTextField(placeholder: "Email")
         return tf
     }()
     
-    private let passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.textColor = .white
-        tf.placeholder = "Password"
+    private let passwordTextField: CustomTextField = {
+        let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
         return tf
     }()
