@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AuthenticationControllerProtocol {
+    func checkFormStatus()
+}
+
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
@@ -96,16 +100,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Helpers
-    
-    func checkFormStatus() {
-        if viewModel.formIsValid {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        } else {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        }
-    }
+        
     func configureUI() {
         configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
@@ -141,4 +136,16 @@ class LoginViewController: UIViewController {
 
     }
     
+}
+
+extension LoginViewController: AuthenticationControllerProtocol {
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        }
+    }
 }

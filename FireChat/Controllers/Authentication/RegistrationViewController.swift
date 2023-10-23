@@ -10,12 +10,14 @@ import UIKit
 class RegistrationViewController: UIViewController {
     
     // MARK: - Properties
+    private var viewModel = RegistrationViewModel()
+    
     private lazy var plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plusPhoto"), for: .normal)
         button.tintColor = .white
         button.addTarget(self, action: #selector(handleSelectPhoto), for: .touchUpInside)
-        
+        button.clipsToBounds = true
         return button
     }()
     
@@ -82,18 +84,36 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
     
     // MARK: - Selectors
     @objc private func handleSelectPhoto() {
-        print(#function)
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
     }
     
     @objc private func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == fullnameTextField {
+            viewModel.fullname = sender.text
+        } else if sender == usernameTextField {
+            viewModel.username = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        }
+        
+        checkFormStatus()
+    }
+    
     // MARK: - Helpers
+
     func configureUI() {
         view.backgroundColor = .green
         configureGradientLayer()
@@ -125,5 +145,41 @@ class RegistrationViewController: UIViewController {
             paddingLeft: 32,
             paddingRight: 32
         )
+    }
+    
+    func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
+        let image = info[.originalImage] as? UIImage
+        plusPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
+        plusPhotoButton.layer.borderColor = UIColor.white.cgColor
+        plusPhotoButton.layer.borderWidth = 3
+        plusPhotoButton.layer.cornerRadius = 200 / 2
+        plusPhotoButton.imageView?.contentMode = .scaleAspectFill
+        
+        dismiss(animated: true)
+    }
+}
+
+extension RegistrationViewController: AuthenticationControllerProtocol {
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        }
     }
 }

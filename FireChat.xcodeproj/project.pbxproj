@@ -17,6 +17,7 @@
 		86BDA00F2AE3E01800823551 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA00E2AE3E01800823551 /* Extension.swift */; };
 		86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0102AE3ED3F00823551 /* InputContainerView.swift */; };
 		86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0122AE3F40F00823551 /* CustomTextField.swift */; };
+		86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */; };
 		86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879272AE2D6C6008F7193 /* LoginViewController.swift */; };
 		86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		86BDA00E2AE3E01800823551 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		86BDA0122AE3F40F00823551 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		86F879272AE2D6C6008F7193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				860930332AE551ED00A37B3F /* LoginViewModel.swift */,
+				86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -169,7 +172,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					8611412C2AE2A8F800550521 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */,
+				86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */,
 				86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */,
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				86BDA00F2AE3E01800823551 /* Extension.swift in Sources */,
@@ -274,6 +278,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -334,6 +339,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -361,8 +367,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FireChat/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This app want to see your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -391,8 +399,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FireChat/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "This app want to see your photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
