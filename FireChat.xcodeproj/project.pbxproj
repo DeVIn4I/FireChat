@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860930342AE551ED00A37B3F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860930332AE551ED00A37B3F /* LoginViewModel.swift */; };
 		861141312AE2A8F800550521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141302AE2A8F800550521 /* AppDelegate.swift */; };
 		861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141322AE2A8F800550521 /* SceneDelegate.swift */; };
 		861141352AE2A8F800550521 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861141342AE2A8F800550521 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		860930332AE551ED00A37B3F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8611412D2AE2A8F800550521 /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861141302AE2A8F800550521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		861141322AE2A8F800550521 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		861141482AE2AAB900550521 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				860930332AE551ED00A37B3F /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */,
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
+				860930342AE551ED00A37B3F /* LoginViewModel.swift in Sources */,
 				86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

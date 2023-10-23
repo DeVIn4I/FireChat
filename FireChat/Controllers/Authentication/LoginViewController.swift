@@ -9,8 +9,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
     // MARK: - Properties
+    private var viewModel = LoginViewModel()
+    
     private let iconImage: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "bubble.right")
@@ -36,6 +37,8 @@ class LoginViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.setHeight(height: 50)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -79,7 +82,30 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc private func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = emailTextField.text
+        } else {
+            viewModel.password = passwordTextField.text
+        }
+        checkFormStatus()
+    }
+    
+    @objc private func handleLogin() {
+        print(#function)
+    }
+    
     // MARK: - Helpers
+    
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        }
+    }
     func configureUI() {
         configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
@@ -110,6 +136,9 @@ class LoginViewController: UIViewController {
             paddingRight: 32
         )
         
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+
     }
     
 }
