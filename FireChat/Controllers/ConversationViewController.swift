@@ -82,7 +82,7 @@ class ConversationViewController: UIViewController {
                                                            target: self,
                                                            action: #selector(showProfile)
         )
-        configureNavigationBar()
+        configureNavigationBar(title: "Messages", prefersLargeTitle: true)
         configureTableView()
         
         view.addSubview(newMessageButton)
@@ -104,24 +104,6 @@ class ConversationViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
-    
-    func configureNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.backgroundColor = .systemPurple
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Messages"
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.isTranslucent = true
-    }
-    
 }
 // MARK: - UITableViewDelegate
 extension ConversationViewController: UITableViewDelegate {
