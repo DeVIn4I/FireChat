@@ -14,6 +14,7 @@
 		8611413A2AE2A8F900550521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861141392AE2A8F900550521 /* Assets.xcassets */; };
 		8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */; };
 		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
+		86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AE87782AE8019A001B9D14 /* UserCell.swift */; };
 		86B3F8792AE6BAC8000F3330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86B3F8782AE6BAC8000F3330 /* GoogleService-Info.plist */; };
 		86B3F8B32AE6BC01000F3330 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B22AE6BC01000F3330 /* SDWebImage */; };
 		86B3F8B52AE6BC01000F3330 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B42AE6BC01000F3330 /* SDWebImageMapKit */; };
@@ -60,6 +61,7 @@
 		8611413C2AE2A8F900550521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8611413E2AE2A8F900550521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		86AE87782AE8019A001B9D14 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		86B3F8782AE6BAC8000F3330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86BDA00E2AE3E01800823551 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				86BDA0102AE3ED3F00823551 /* InputContainerView.swift */,
 				86BDA0122AE3F40F00823551 /* CustomTextField.swift */,
+				86AE87782AE8019A001B9D14 /* UserCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */,
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				86BDA00F2AE3E01800823551 /* Extension.swift in Sources */,
+				86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */,
 				861141312AE2A8F800550521 /* AppDelegate.swift in Sources */,
 				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */,
