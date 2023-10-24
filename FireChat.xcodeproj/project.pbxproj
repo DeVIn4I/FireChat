@@ -44,6 +44,7 @@
 		86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0102AE3ED3F00823551 /* InputContainerView.swift */; };
 		86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0122AE3F40F00823551 /* CustomTextField.swift */; };
 		86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6C4682AE7C4B4004029DE /* AuthService.swift */; };
+		86D6C46B2AE7F080004029DE /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6C46A2AE7F080004029DE /* NewMessageController.swift */; };
 		86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */; };
 		86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879272AE2D6C6008F7193 /* LoginViewController.swift */; };
 		86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */; };
@@ -64,6 +65,7 @@
 		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		86BDA0122AE3F40F00823551 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		86D6C4682AE7C4B4004029DE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		86D6C46A2AE7F080004029DE /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		86F879272AE2D6C6008F7193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				86F879262AE2D6A8008F7193 /* Authentication */,
 				8611414A2AE2AAFF00550521 /* ConversationViewController.swift */,
+				86D6C46A2AE7F080004029DE /* NewMessageController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
 				860930342AE551ED00A37B3F /* LoginViewModel.swift in Sources */,
 				86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */,
+				86D6C46B2AE7F080004029DE /* NewMessageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
