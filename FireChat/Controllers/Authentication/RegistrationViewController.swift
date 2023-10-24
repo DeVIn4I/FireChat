@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
 class RegistrationViewController: UIViewController {
     
     // MARK: - Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private lazy var plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -22,17 +25,17 @@ class RegistrationViewController: UIViewController {
     }()
     
     private lazy var emailContainerView: InputContainerView = {
-       let view = InputContainerView(image: UIImage(named: "mail"), textField: emailTextField)
+        let view = InputContainerView(image: UIImage(named: "mail"), textField: emailTextField)
         return view
     }()
     
     private lazy var fullnameContainerView: InputContainerView = {
-       let view = InputContainerView(image: UIImage(named: "person"), textField: fullnameTextField)
+        let view = InputContainerView(image: UIImage(named: "person"), textField: fullnameTextField)
         return view
     }()
     
     private lazy var usernameContainerView: InputContainerView = {
-       let view = InputContainerView(image: UIImage(named: "person"), textField: usernameTextField)
+        let view = InputContainerView(image: UIImage(named: "person"), textField: usernameTextField)
         return view
     }()
     
@@ -44,7 +47,7 @@ class RegistrationViewController: UIViewController {
     private let emailTextField = CustomTextField(placeholder: "Email")
     private let fullnameTextField = CustomTextField(placeholder: "Full Name")
     private let usernameTextField = CustomTextField(placeholder: "Username")
-
+    
     private let passwordTextField: CustomTextField = {
         let tf = CustomTextField(placeholder: "Password")
         tf.isSecureTextEntry = true
@@ -59,7 +62,7 @@ class RegistrationViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.setHeight(height: 50)
-        
+        button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
         return button
     }()
     
@@ -112,8 +115,48 @@ class RegistrationViewController: UIViewController {
         checkFormStatus()
     }
     
+    @objc private func handleRegistration() {
+        guard
+            let email = emailTextField.text,
+            let fullname = fullnameTextField.text,
+            let username = usernameTextField.text?.lowercased(),
+            let password = passwordTextField.text,
+            let profileImage
+        else { return }
+        
+        let credentials = RegistrationCredentials(
+            email: email,
+            password: password,
+            fullname: fullname,
+            username: username,
+            profileImage: profileImage
+        )
+        showLoader(true, withText: "Sign In...")
+        AuthService.shared.createUser(credentials: credentials) { error in
+            if let error {
+                print("DEBUG: Error - \(error.localizedDescription)")
+                self.showLoader(false)
+                return
+            }
+            self.showLoader(false)
+            self.dismiss(animated: true)
+        }
+    }
+    
+    @objc private func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y -= 88
+        }
+    }
+    
+    @objc private func keyboardWillHide() {
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
+    }
+    
     // MARK: - Helpers
-
+    
     func configureUI() {
         view.backgroundColor = .green
         configureGradientLayer()
@@ -152,6 +195,9 @@ class RegistrationViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 
@@ -162,6 +208,7 @@ extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigat
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
     ) {
         let image = info[.originalImage] as? UIImage
+        profileImage = image
         plusPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 3

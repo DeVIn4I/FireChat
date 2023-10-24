@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseId = "ConversationCell"
 
@@ -18,26 +19,53 @@ class ConversationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureNavigationBar()
-        configureTableView()
+        authenticateUser()
     }
     // MARK: - Selectors
     
     @objc private func showProfile() {
-        print("DEGUB: showProfilePressed")
+        print("DEBUG: showProfilePressed")
+        logout()
+    }
+    
+    // MARK: - API
+    func authenticateUser() {
+        if Auth.auth().currentUser?.uid == nil {
+            presentLoginScreen()
+        } else {
+            print("DEBUG: User id is - ")
+        }
+    }
+    
+    func presentLoginScreen() {
+        DispatchQueue.main.async {
+            let controller = LoginViewController()
+            let navController = UINavigationController(rootViewController: controller)
+            navController.modalPresentationStyle = .fullScreen
+            self.present(navController, animated: true)
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            presentLoginScreen()
+        } catch let error {
+            print("DEBUG: Error signout... \(error)")
+        }
     }
     
     // MARK: - Helpers
     func configureUI() {
         view.backgroundColor = .white
-        
-        
         let leftBarImage = UIImage(systemName: "person.circle.fill")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: leftBarImage,
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(showProfile)
         )
+        configureNavigationBar()
+        configureTableView()
     }
     
     func configureTableView() {
