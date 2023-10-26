@@ -15,6 +15,17 @@ class ConversationViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     
+    private lazy var newMessageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.backgroundColor = .systemPurple
+        button.tintColor = .white
+        button.setDimensions(height: 56, width: 56)
+        button.layer.cornerRadius = 56 / 2
+        button.addTarget(self, action: #selector(showNewMessage), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +39,19 @@ class ConversationViewController: UIViewController {
         logout()
     }
     
+    @objc private func showNewMessage() {
+        let controller = NewMessageController()
+        let navController = UINavigationController(rootViewController: controller)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+    }
+    
     // MARK: - API
     func authenticateUser() {
         if Auth.auth().currentUser?.uid == nil {
             presentLoginScreen()
         } else {
-            print("DEBUG: User id is - ")
+            print("DEBUG: User id is - \(Auth.auth().currentUser?.uid)")
         }
     }
     
@@ -64,8 +82,16 @@ class ConversationViewController: UIViewController {
                                                            target: self,
                                                            action: #selector(showProfile)
         )
-        configureNavigationBar()
+        configureNavigationBar(title: "Messages", prefersLargeTitle: true)
         configureTableView()
+        
+        view.addSubview(newMessageButton)
+        newMessageButton.anchor(
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            right: view.trailingAnchor,
+            paddingBottom: 16,
+            paddingRight: 24
+        )
     }
     
     func configureTableView() {
@@ -78,24 +104,6 @@ class ConversationViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
-    
-    func configureNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.backgroundColor = .systemPurple
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Messages"
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.isTranslucent = true
-    }
-    
 }
 // MARK: - UITableViewDelegate
 extension ConversationViewController: UITableViewDelegate {

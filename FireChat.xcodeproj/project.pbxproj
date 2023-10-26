@@ -14,6 +14,9 @@
 		8611413A2AE2A8F900550521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861141392AE2A8F900550521 /* Assets.xcassets */; };
 		8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */; };
 		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
+		8681A1582AEA485B008C0E5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1572AEA485B008C0E5A /* User.swift */; };
+		8681A15A2AEA48C3008C0E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1592AEA48C3008C0E5A /* Service.swift */; };
+		86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AE87782AE8019A001B9D14 /* UserCell.swift */; };
 		86B3F8792AE6BAC8000F3330 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86B3F8782AE6BAC8000F3330 /* GoogleService-Info.plist */; };
 		86B3F8B32AE6BC01000F3330 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B22AE6BC01000F3330 /* SDWebImage */; };
 		86B3F8B52AE6BC01000F3330 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B42AE6BC01000F3330 /* SDWebImageMapKit */; };
@@ -44,6 +47,7 @@
 		86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0102AE3ED3F00823551 /* InputContainerView.swift */; };
 		86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BDA0122AE3F40F00823551 /* CustomTextField.swift */; };
 		86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6C4682AE7C4B4004029DE /* AuthService.swift */; };
+		86D6C46B2AE7F080004029DE /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6C46A2AE7F080004029DE /* NewMessageController.swift */; };
 		86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */; };
 		86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879272AE2D6C6008F7193 /* LoginViewController.swift */; };
 		86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */; };
@@ -59,11 +63,15 @@
 		8611413C2AE2A8F900550521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8611413E2AE2A8F900550521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		8681A1572AEA485B008C0E5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8681A1592AEA48C3008C0E5A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		86AE87782AE8019A001B9D14 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		86B3F8782AE6BAC8000F3330 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86BDA00E2AE3E01800823551 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		86BDA0122AE3F40F00823551 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		86D6C4682AE7C4B4004029DE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		86D6C46A2AE7F080004029DE /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		86F879272AE2D6C6008F7193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		86F879292AE2D6EF008F7193 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -124,13 +132,13 @@
 		8611412F2AE2A8F800550521 /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				8681A1562AEA4851008C0E5A /* Models */,
 				86B3F8782AE6BAC8000F3330 /* GoogleService-Info.plist */,
 				861141492AE2AABB00550521 /* Utilits */,
 				861141482AE2AAB900550521 /* ViewModels */,
 				861141472AE2AAB700550521 /* Controllers */,
 				861141462AE2AAB600550521 /* API */,
 				861141452AE2AAB500550521 /* Views */,
-				861141442AE2AAAF00550521 /* Models */,
 				861141302AE2A8F800550521 /* AppDelegate.swift */,
 				861141322AE2A8F800550521 /* SceneDelegate.swift */,
 				861141342AE2A8F800550521 /* ViewController.swift */,
@@ -141,18 +149,12 @@
 			path = FireChat;
 			sourceTree = "<group>";
 		};
-		861141442AE2AAAF00550521 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		861141452AE2AAB500550521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				86BDA0102AE3ED3F00823551 /* InputContainerView.swift */,
 				86BDA0122AE3F40F00823551 /* CustomTextField.swift */,
+				86AE87782AE8019A001B9D14 /* UserCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				86D6C4682AE7C4B4004029DE /* AuthService.swift */,
+				8681A1592AEA48C3008C0E5A /* Service.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			children = (
 				86F879262AE2D6A8008F7193 /* Authentication */,
 				8611414A2AE2AAFF00550521 /* ConversationViewController.swift */,
+				86D6C46A2AE7F080004029DE /* NewMessageController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +193,14 @@
 				86BDA00E2AE3E01800823551 /* Extension.swift */,
 			);
 			path = Utilits;
+			sourceTree = "<group>";
+		};
+		8681A1562AEA4851008C0E5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8681A1572AEA485B008C0E5A /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		86F879262AE2D6A8008F7193 /* Authentication */ = {
@@ -309,12 +321,16 @@
 				86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */,
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				86BDA00F2AE3E01800823551 /* Extension.swift in Sources */,
+				86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */,
 				861141312AE2A8F800550521 /* AppDelegate.swift in Sources */,
+				8681A1582AEA485B008C0E5A /* User.swift in Sources */,
+				8681A15A2AEA48C3008C0E5A /* Service.swift in Sources */,
 				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */,
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
 				860930342AE551ED00A37B3F /* LoginViewModel.swift in Sources */,
 				86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */,
+				86D6C46B2AE7F080004029DE /* NewMessageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
