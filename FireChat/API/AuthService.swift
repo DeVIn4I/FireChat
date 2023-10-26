@@ -30,7 +30,7 @@ struct AuthService {
         guard let imageData = credentials.profileImage.jpegData(compressionQuality: 0.3) else { return }
         
         let filename = NSUUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile_images/\(filename)")
+        let ref = Storage.storage().reference(withPath: "/profileImages/\(filename)")
         
         ref.putData(imageData, metadata: nil) { meta, error in
             if let error {
@@ -41,7 +41,7 @@ struct AuthService {
             ref.downloadURL { url, error in
                 guard let profileImageUrl = url?.absoluteString else { return }
                 
-                Auth.auth().signIn(withEmail: credentials.email, password: credentials.password) { result, error in
+                Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { result, error in
                     if let error {
                         completion!(error)
                     }
