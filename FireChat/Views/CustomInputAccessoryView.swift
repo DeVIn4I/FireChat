@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CustomInputAccessoryViewDelegate: AnyObject {
+    func inputView(_ inputView: CustomInputAccessoryView, wantsToSend message: String)
+}
+
 class CustomInputAccessoryView: UIView {
     
     // MARK: - Properties
@@ -33,6 +37,8 @@ class CustomInputAccessoryView: UIView {
         label.textColor = .lightGray
         return label
     }()
+    
+    weak var delegate: CustomInputAccessoryViewDelegate?
     
     override var intrinsicContentSize: CGSize {
         return .zero
@@ -83,7 +89,8 @@ class CustomInputAccessoryView: UIView {
     
     // MARK: - Selectors
     @objc private func sendMessage() {
-        print(#function)
+        guard let message = messsageInputTextView.text else { return }
+        delegate?.inputView(self, wantsToSend: message)
     }
     
     @objc private func handleTextInputChange() {
