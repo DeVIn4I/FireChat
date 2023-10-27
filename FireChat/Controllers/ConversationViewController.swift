@@ -42,8 +42,10 @@ class ConversationViewController: UIViewController {
     // MARK: - Selectors
     
     @objc private func showProfile() {
-        print("DEBUG: showProfilePressed")
-        logout()
+        let controller = ProfileController()
+        let navController = UINavigationController(rootViewController: controller)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
     
     @objc private func showNewMessage() {

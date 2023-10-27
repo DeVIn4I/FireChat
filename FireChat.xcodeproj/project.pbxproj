@@ -25,6 +25,8 @@
 		86A09DA72AEBA66000AFA725 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86A09DA62AEBA66000AFA725 /* GoogleService-Info.plist */; };
 		86A09DA92AEC195E00AFA725 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A09DA82AEC195E00AFA725 /* ConversationCell.swift */; };
 		86A09DAB2AEC1D4F00AFA725 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A09DAA2AEC1D4F00AFA725 /* ConversationViewModel.swift */; };
+		86A09DAD2AEC2A3900AFA725 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A09DAC2AEC2A3900AFA725 /* ProfileController.swift */; };
+		86A09DAF2AEC2B2200AFA725 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A09DAE2AEC2B2200AFA725 /* ProfileHeader.swift */; };
 		86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AE87782AE8019A001B9D14 /* UserCell.swift */; };
 		86B3F8B32AE6BC01000F3330 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B22AE6BC01000F3330 /* SDWebImage */; };
 		86B3F8B52AE6BC01000F3330 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86B3F8B42AE6BC01000F3330 /* SDWebImageMapKit */; };
@@ -82,6 +84,8 @@
 		86A09DA62AEBA66000AFA725 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86A09DA82AEC195E00AFA725 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 		86A09DAA2AEC1D4F00AFA725 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		86A09DAC2AEC2A3900AFA725 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		86A09DAE2AEC2B2200AFA725 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		86AE87782AE8019A001B9D14 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		86BDA00E2AE3E01800823551 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		86BDA0102AE3ED3F00823551 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				868F70D42AEA8CEE00D691EA /* CustomInputAccessoryView.swift */,
 				868F70D62AEA96A200D691EA /* MessageCell.swift */,
 				86A09DA82AEC195E00AFA725 /* ConversationCell.swift */,
+				86A09DAE2AEC2B2200AFA725 /* ProfileHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				8611414A2AE2AAFF00550521 /* ConversationViewController.swift */,
 				86D6C46A2AE7F080004029DE /* NewMessageController.swift */,
 				868F70CF2AEA72CF00D691EA /* ChatController.swift */,
+				86A09DAC2AEC2A3900AFA725 /* ProfileController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A09DAD2AEC2A3900AFA725 /* ProfileController.swift in Sources */,
 				86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */,
 				86A09DA52AEB9AC000AFA725 /* Constants.swift in Sources */,
 				86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */,
@@ -356,6 +363,7 @@
 				8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */,
 				86F879282AE2D6C6008F7193 /* LoginViewController.swift in Sources */,
 				861141332AE2A8F800550521 /* SceneDelegate.swift in Sources */,
+				86A09DAF2AEC2B2200AFA725 /* ProfileHeader.swift in Sources */,
 				860930342AE551ED00A37B3F /* LoginViewModel.swift in Sources */,
 				868F70D02AEA72CF00D691EA /* ChatController.swift in Sources */,
 				86BDA0132AE3F40F00823551 /* CustomTextField.swift in Sources */,
