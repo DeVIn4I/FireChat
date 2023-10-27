@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyD25JJ38RHqad8BPYqBwwfUoOu2aGTfbqI</string>
+	<string>AIzaSyDbNcZS7H2LBDXOOGHJJsHmIJjNCviNf5Q</string>
 	<key>GCM_SENDER_ID</key>
 	<string>697154393185</string>
 	<key>PLIST_VERSION</key>
@@ -15,16 +15,16 @@
 	<key>STORAGE_BUCKET</key>
 	<string>myfirechat-90ab5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:664512648477:ios:bad58fde233ee748ac3df4</string>
+	<string>1:697154393185:ios:a7df2f2e2a541279d20620</string>
 </dict>
 </plist>
