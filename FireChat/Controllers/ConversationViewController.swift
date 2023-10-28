@@ -43,6 +43,7 @@ class ConversationViewController: UIViewController {
     
     @objc private func showProfile() {
         let controller = ProfileController(style: .insetGrouped)
+        controller.delegate = self
         let navController = UINavigationController(rootViewController: controller)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
@@ -148,8 +149,6 @@ extension ConversationViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
-    
 }
 
 // MARK: - NewMessageControllerDelegate
@@ -158,5 +157,10 @@ extension ConversationViewController: NewMessageControllerDelegate {
         controller.dismiss(animated: true)
         showChatController(for: user)
     }
+}
 
+extension ConversationViewController: ProfileControllerDelegate {
+    func handleLogout() {
+        logout()
+    }
 }

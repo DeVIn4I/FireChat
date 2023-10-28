@@ -10,6 +10,10 @@ import Firebase
 
 private let reuseId = "profileCell"
 
+protocol ProfileControllerDelegate: AnyObject {
+    func handleLogout()
+}
+
 class ProfileController: UITableViewController {
     
     // MARK: - Properties
@@ -18,6 +22,8 @@ class ProfileController: UITableViewController {
     private var user: User? {
         didSet { headerView.user = user }
     }
+    
+    weak var delegate: ProfileControllerDelegate?
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +62,10 @@ class ProfileController: UITableViewController {
         tableView.tableFooterView = footerView
             
         headerView.delegate = self
+        footerView.delegate = self
     }
 }
-
+// MARK: - UITableViewDataSource
 extension ProfileController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ProfileViewModel.allCases.count
@@ -79,8 +86,25 @@ extension ProfileController: ProfileHeaderDelegate {
     }
 }
 
+extension ProfileController: ProfileFooterDelegate {
+    func handleLogout() {
+        let alert = UIAlertController(title: "Logout", message: "Are you sure you want to out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
+            self.dismiss(animated: true) {
+                self.delegate?.handleLogout()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+}
+// MARK: - UITableViewDelegate
 extension ProfileController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let viewModel = ProfileViewModel(rawValue: indexPath.row) else { return }
     }
 }

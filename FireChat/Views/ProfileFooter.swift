@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol ProfileFooterDelegate: AnyObject {
+    func handleLogout()
+}
+
 class ProfileFooter: UIView {
     
     // MARK: - Properties
+    weak var delegate: ProfileFooterDelegate?
     private lazy var logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Logout", for: .normal)
@@ -17,6 +22,7 @@ class ProfileFooter: UIView {
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.backgroundColor = .systemPink
         button.layer.cornerRadius = 6
+        button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         return button
     }()
     
@@ -33,5 +39,8 @@ class ProfileFooter: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Helpers
+    // MARK: - Selectors
+    @objc private func handleLogout() {
+        delegate?.handleLogout()
+    }
 }
