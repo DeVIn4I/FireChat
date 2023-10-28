@@ -98,5 +98,8 @@ class CustomInputAccessoryView: UIView {
     }
     
     // MARK: - Helpers
-    
+    func clearMessageText() {
+        messsageInputTextView.text = nil
+        placeholderLabel.isHidden = false
+    }
 }

@@ -14,6 +14,7 @@ class ConversationViewController: UIViewController {
     
     // MARK: - Properties
     private let tableView = UITableView()
+    private var conversations: [Conversation] = []
     
     private lazy var newMessageButton: UIButton = {
         let button = UIButton(type: .system)
@@ -31,12 +32,20 @@ class ConversationViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         authenticateUser()
+        fetchConversations()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar(title: "Messages", prefersLargeTitle: true)
     }
     // MARK: - Selectors
     
     @objc private func showProfile() {
-        print("DEBUG: showProfilePressed")
-        logout()
+        let controller = ProfileController(style: .insetGrouped)
+        let navController = UINavigationController(rootViewController: controller)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
     
     @objc private func showNewMessage() {
@@ -53,6 +62,13 @@ class ConversationViewController: UIViewController {
             presentLoginScreen()
         } else {
             print("DEBUG: User id is - \(Auth.auth().currentUser?.uid)")
+        }
+    }
+    
+    func fetchConversations() {
+        Service.fetchConversations { conversations in
+            self.conversations = conversations
+            self.tableView.reloadData()
         }
     }
     
@@ -83,7 +99,6 @@ class ConversationViewController: UIViewController {
                                                            target: self,
                                                            action: #selector(showProfile)
         )
-        configureNavigationBar(title: "Messages", prefersLargeTitle: true)
         configureTableView()
         
         view.addSubview(newMessageButton)
@@ -100,31 +115,36 @@ class ConversationViewController: UIViewController {
         view.addSubview(tableView)
         tableView.frame = view.frame
         tableView.rowHeight = 80
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+        tableView.register(ConversationCell.self, forCellReuseIdentifier: reuseId)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    func showChatController(for user: User) {
+        let controller = ChatController(user: user)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 // MARK: - UITableViewDelegate
 extension ConversationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Cell pressed - \(indexPath.row)")
+        let user = conversations[indexPath.row].user
+        showChatController(for: user)
     }
 
 }
 // MARK: - UITableViewDataSource
 extension ConversationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        print("DEBUG: count - \(conversations.count)")
+        return conversations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = "Test cell is - \(indexPath.row)"
-        cell.contentConfiguration = content
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! ConversationCell
         
+        cell.conversation = conversations[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
@@ -136,9 +156,7 @@ extension ConversationViewController: UITableViewDataSource {
 extension ConversationViewController: NewMessageControllerDelegate {
     func controller(_ controller: NewMessageController, wantToStartChatWith user: User) {
         controller.dismiss(animated: true)
-        
-        let chat = ChatController(user: user)
-        navigationController?.pushViewController(chat, animated: true)
+        showChatController(for: user)
     }
 
 }
