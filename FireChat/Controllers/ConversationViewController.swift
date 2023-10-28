@@ -15,6 +15,7 @@ class ConversationViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     private var conversations: [Conversation] = []
+    private var conversationDictionary: [String: Conversation] = [:]
     
     private lazy var newMessageButton: UIButton = {
         let button = UIButton(type: .system)
@@ -43,6 +44,7 @@ class ConversationViewController: UIViewController {
     
     @objc private func showProfile() {
         let controller = ProfileController(style: .insetGrouped)
+        controller.delegate = self
         let navController = UINavigationController(rootViewController: controller)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
@@ -60,14 +62,19 @@ class ConversationViewController: UIViewController {
     func authenticateUser() {
         if Auth.auth().currentUser?.uid == nil {
             presentLoginScreen()
-        } else {
-            print("DEBUG: User id is - \(Auth.auth().currentUser?.uid)")
         }
     }
     
     func fetchConversations() {
+        showLoader(true)
         Service.fetchConversations { conversations in
-            self.conversations = conversations
+            
+            conversations.forEach { conversation in
+                let message = conversation.message
+                self.conversationDictionary[message.chatPartnerId] = conversation
+            }
+            self.showLoader(false)
+            self.conversations = Array(self.conversationDictionary.values)
             self.tableView.reloadData()
         }
     }
@@ -75,6 +82,7 @@ class ConversationViewController: UIViewController {
     func presentLoginScreen() {
         DispatchQueue.main.async {
             let controller = LoginViewController()
+            controller.delegate = self
             let navController = UINavigationController(rootViewController: controller)
             navController.modalPresentationStyle = .fullScreen
             self.present(navController, animated: true)
@@ -86,7 +94,7 @@ class ConversationViewController: UIViewController {
             try Auth.auth().signOut()
             presentLoginScreen()
         } catch let error {
-            print("DEBUG: Error signout... \(error)")
+            showError(error.localizedDescription)
         }
     }
     
@@ -137,26 +145,35 @@ extension ConversationViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension ConversationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("DEBUG: count - \(conversations.count)")
         return conversations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! ConversationCell
-        
         cell.conversation = conversations[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
-    
-    
 }
 
 // MARK: - NewMessageControllerDelegate
 extension ConversationViewController: NewMessageControllerDelegate {
     func controller(_ controller: NewMessageController, wantToStartChatWith user: User) {
-        controller.dismiss(animated: true)
+        dismiss(animated: true)
         showChatController(for: user)
     }
+}
 
+extension ConversationViewController: ProfileControllerDelegate {
+    func handleLogout() {
+        logout()
+    }
+}
+
+extension ConversationViewController: AuthenticationDelegate {
+    func authenticationComplete() {
+        dismiss(animated: true)
+        configureUI()
+        fetchConversations()
+    }
 }

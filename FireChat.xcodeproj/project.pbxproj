@@ -16,6 +16,7 @@
 		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
 		86601A922AED271200D27851 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86601A912AED271200D27851 /* ProfileViewModel.swift */; };
 		86601A942AED2E6E00D27851 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86601A932AED2E6E00D27851 /* ProfileCell.swift */; };
+		86601A962AED346200D27851 /* ProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86601A952AED346200D27851 /* ProfileFooter.swift */; };
 		8681A1582AEA485B008C0E5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1572AEA485B008C0E5A /* User.swift */; };
 		8681A15A2AEA48C3008C0E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1592AEA48C3008C0E5A /* Service.swift */; };
 		868F70D02AEA72CF00D691EA /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868F70CF2AEA72CF00D691EA /* ChatController.swift */; };
@@ -77,6 +78,7 @@
 		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		86601A912AED271200D27851 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		86601A932AED2E6E00D27851 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		86601A952AED346200D27851 /* ProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooter.swift; sourceTree = "<group>"; };
 		8681A1572AEA485B008C0E5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8681A1592AEA48C3008C0E5A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		868F70CF2AEA72CF00D691EA /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				86A09DA82AEC195E00AFA725 /* ConversationCell.swift */,
 				86A09DAE2AEC2B2200AFA725 /* ProfileHeader.swift */,
 				86601A932AED2E6E00D27851 /* ProfileCell.swift */,
+				86601A952AED346200D27851 /* ProfileFooter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */,
 				86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */,
 				868F70DB2AEAA06E00D691EA /* MessageViewModel.swift in Sources */,
+				86601A962AED346200D27851 /* ProfileFooter.swift in Sources */,
 				861141352AE2A8F800550521 /* ViewController.swift in Sources */,
 				86BDA00F2AE3E01800823551 /* Extension.swift in Sources */,
 				86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */,
