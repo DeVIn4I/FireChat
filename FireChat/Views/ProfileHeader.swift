@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol ProfileHeaderDelegate: AnyObject {
+    func dismissController()
+}
+
 class ProfileHeader: UIView {
     
     // MARK: - Properties
     private let gradient = CAGradientLayer()
+    weak var delegate: ProfileHeaderDelegate?
+    var user: User? {
+        didSet { populateUserData() }
+    }
     
     private lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -66,7 +74,7 @@ class ProfileHeader: UIView {
     
     // MARK: - Selectors
     @objc private func handleDismissal() {
-        
+        delegate?.dismissController()
     }
     
     // MARK: - Helpers
@@ -94,6 +102,16 @@ class ProfileHeader: UIView {
         gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemPink.cgColor]
         gradient.locations = [0, 1]
         layer.addSublayer(gradient)
+    }
+    
+    func populateUserData() {
+        guard let user else { return }
+        
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = "@" + user.username
+        
+        guard let url = URL(string: user.profileImageUrl) else { return }
+        profileImageView.sd_setImage(with: url)
     }
 
 }

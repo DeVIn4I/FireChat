@@ -14,6 +14,8 @@
 		8611413A2AE2A8F900550521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861141392AE2A8F900550521 /* Assets.xcassets */; };
 		8611413D2AE2A8F900550521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8611413B2AE2A8F900550521 /* LaunchScreen.storyboard */; };
 		8611414B2AE2AAFF00550521 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611414A2AE2AAFF00550521 /* ConversationViewController.swift */; };
+		86601A922AED271200D27851 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86601A912AED271200D27851 /* ProfileViewModel.swift */; };
+		86601A942AED2E6E00D27851 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86601A932AED2E6E00D27851 /* ProfileCell.swift */; };
 		8681A1582AEA485B008C0E5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1572AEA485B008C0E5A /* User.swift */; };
 		8681A15A2AEA48C3008C0E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681A1592AEA48C3008C0E5A /* Service.swift */; };
 		868F70D02AEA72CF00D691EA /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868F70CF2AEA72CF00D691EA /* ChatController.swift */; };
@@ -73,6 +75,8 @@
 		8611413C2AE2A8F900550521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8611413E2AE2A8F900550521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8611414A2AE2AAFF00550521 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		86601A912AED271200D27851 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		86601A932AED2E6E00D27851 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		8681A1572AEA485B008C0E5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8681A1592AEA48C3008C0E5A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		868F70CF2AEA72CF00D691EA /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				868F70D62AEA96A200D691EA /* MessageCell.swift */,
 				86A09DA82AEC195E00AFA725 /* ConversationCell.swift */,
 				86A09DAE2AEC2B2200AFA725 /* ProfileHeader.swift */,
+				86601A932AED2E6E00D27851 /* ProfileCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				86E8E0602AE6A0E800C5986E /* RegistrationViewModel.swift */,
 				868F70DA2AEAA06E00D691EA /* MessageViewModel.swift */,
 				86A09DAA2AEC1D4F00AFA725 /* ConversationViewModel.swift */,
+				86601A912AED271200D27851 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				86A09DAD2AEC2A3900AFA725 /* ProfileController.swift in Sources */,
 				86F8792A2AE2D6EF008F7193 /* RegistrationViewController.swift in Sources */,
 				86A09DA52AEB9AC000AFA725 /* Constants.swift in Sources */,
+				86601A922AED271200D27851 /* ProfileViewModel.swift in Sources */,
 				86E8E0612AE6A0E800C5986E /* RegistrationViewModel.swift in Sources */,
 				86BDA0112AE3ED3F00823551 /* InputContainerView.swift in Sources */,
 				86D6C4692AE7C4B4004029DE /* AuthService.swift in Sources */,
@@ -357,6 +364,7 @@
 				86AE87792AE8019A001B9D14 /* UserCell.swift in Sources */,
 				861141312AE2A8F800550521 /* AppDelegate.swift in Sources */,
 				8681A1582AEA485B008C0E5A /* User.swift in Sources */,
+				86601A942AED2E6E00D27851 /* ProfileCell.swift in Sources */,
 				8681A15A2AEA48C3008C0E5A /* Service.swift in Sources */,
 				868F70D72AEA96A200D691EA /* MessageCell.swift in Sources */,
 				86A09DAB2AEC1D4F00AFA725 /* ConversationViewModel.swift in Sources */,

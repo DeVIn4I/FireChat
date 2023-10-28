@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseId = "profileCell"
 
@@ -13,11 +14,14 @@ class ProfileController: UITableViewController {
     
     // MARK: - Properties
     private lazy var headerView = ProfileHeader(frame: .init(x: 0, y: 0, width: view.frame.width, height: 380))
-    
+    private var user: User? {
+        didSet { headerView.user = user }
+    }
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +31,14 @@ class ProfileController: UITableViewController {
     }
     
     // MARK: - API
+    func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Service.fetchUser(with: uid) { user in
+            self.user = user
+            print("DEBUG: User is - \(user.username)")
+        }
+    }
     
     // MARK: - Selectors
     
@@ -34,22 +46,40 @@ class ProfileController: UITableViewController {
     // MARK: - Helpers
     func configureUI() {
         tableView.backgroundColor = .white
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+        tableView.register(ProfileCell.self, forCellReuseIdentifier: reuseId)
         tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
-        
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.rowHeight = 64
+        tableView.backgroundColor = .systemGroupedBackground
+
+        
+        headerView.delegate = self
     }
 }
 
 extension ProfileController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        return ProfileViewModel.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
-        cell.backgroundColor = .blue
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! ProfileCell
+        let viewModel = ProfileViewModel(rawValue: indexPath.row)
+        cell.viewModel = viewModel
+        cell.accessoryType = .disclosureIndicator
         return cell
+    }
+}
+
+extension ProfileController: ProfileHeaderDelegate {
+    func dismissController() {
+        dismiss(animated: true)
+    }
+}
+
+extension ProfileController {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
     }
 }
