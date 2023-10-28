@@ -11,14 +11,13 @@ import Firebase
 struct Service {
     
     static func fetchUsers(completion: @escaping([User]) -> Void) {
-        var users: [User] = []
         COLLECTION_USERS.getDocuments { snapshot, error in
-            snapshot?.documents.forEach({ document in
-                let dictionary = document.data()
-                let user = User(dictionary: dictionary)
-                users.append(user)
-                completion(users)
-            })
+            guard var users = snapshot?.documents.map({ User(dictionary: $0.data()) }) else { return }
+            
+            if let index = users.firstIndex(where: { $0.uid == Auth.auth().currentUser?.uid }) {
+                users.remove(at: index)
+            }
+            completion(users)
         }
     }
     
@@ -40,7 +39,7 @@ struct Service {
                 let dictionary = change.document.data()
                 let message = Message(dictionary: dictionary)
                 
-                fetchUser(with: message.toId) { user in
+                fetchUser(with: message.chatPartnerId) { user in
                     let conversation = Conversation(user: user, message: message)
                     conversations.append(conversation)
                     completion(conversations)
@@ -65,7 +64,7 @@ struct Service {
             COLLECTION_MESSAGES.document(currentUid).collection("recent-messages").document(user.uid).setData(data)
             
             COLLECTION_MESSAGES.document(user.uid).collection("recent-messages").document(currentUid).setData(data)
-
+            
         }
     }
     
